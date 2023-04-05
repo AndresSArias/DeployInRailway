@@ -13,7 +13,7 @@ public interface UsuarioRepository extends JpaRepository <Usuario, String>{
 	
 	Optional<Usuario> findByIdUsuario (String idUsuario);
 	
-	@Query (value = "SELECT * FROM usuario", nativeQuery = true)
+	@Query (value = "SELECT * FROM Usuario", nativeQuery = true)
 	List<Usuario> getUsuarios();
 	
 }
