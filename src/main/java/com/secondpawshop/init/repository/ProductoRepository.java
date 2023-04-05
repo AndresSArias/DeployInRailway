@@ -31,7 +31,12 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoLla
 	@Query("UPDATE PRODUCTO P SET ESTADO = 'PUBLICADO' WHERE P.IDUSUARIOFK = :idUsuarioFK AND NOMBRE = :nombre")
 	void actualizarProducto (@Param("idUsuarioFK") String idUsuarioFK, @Param("nombre") String nombre);
 	*/
-
+	/*
+	@Modifying
+	@Query("UPDATE Producto P SET ESTADO = 'PUBLICADO' WHERE P.idUsuarioFK = :llave.getIdUsuarioFK() AND P.nombre = :llave.getNombre()")
+	void actualizarProducto (ProductoLlaveCompuesta llave);
+	*/
+	
 	default void actualizarProducto(ProductoLlaveCompuesta llave) {
 	    Optional<Producto> productoOptional = this.findById(llave);
 	    if (productoOptional.isPresent()) {
@@ -40,7 +45,6 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoLla
 	        this.save(producto);
 	    }
 	}
-
 	
 	
 }

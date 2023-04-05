@@ -7,7 +7,7 @@ import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "producto")
+@Table (name = "Producto")
 @IdClass(ProductoLlaveCompuesta.class)
 public class Producto {
 
