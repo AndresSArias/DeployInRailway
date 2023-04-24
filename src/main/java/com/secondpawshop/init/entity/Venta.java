@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "venta")
+@Table(name = "VENTA")
 public class Venta {
     @EmbeddedId
     private VentaId id;
