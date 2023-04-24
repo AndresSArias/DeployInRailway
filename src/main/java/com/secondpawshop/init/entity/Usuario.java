@@ -6,42 +6,39 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "USUARIO")
+@Table(name = "usuario")
 public class Usuario {
-	
-	@Id
-	@Column (name = "IDUSUARIO")
-	private String idUsuario;
-	
-	@Column (name = "NOMBRE")
-	private String nombre;
-	
-	@Column (name = "APELLIDO")
-	private String apellido;
-	
-	@Column (name = "CORREO")
-	private String correo;
-	
-	@Column (name = "CELULAR")
-	private String celular;
-	
-	@Column (name = "DIRECCION")
-	private String direccion;
-	
-	@Column (name = "CONTRASENA")
-	private String contrasena;
-	
-	@Column (name = "ROL")
-	private String rol;
-	
-	public Usuario () {
-		
-	}
+    @Id
+    @Column(name = "IDUSUARIO", nullable = false, length = 15)
+    private String id;
 
-	public Usuario(String idUsuario, String nombre, String apellido, String correo, String celular, String direccion,
+    @Column(name = "NOMBRE", nullable = false, length = 50)
+    private String nombre;
+
+    @Column(name = "APELLIDO", nullable = false, length = 50)
+    private String apellido;
+
+    @Column(name = "CORREO", nullable = false, length = 50)
+    private String correo;
+
+    @Column(name = "CELULAR", nullable = false, length = 10)
+    private String celular;
+
+    @Column(name = "DIRECCION", nullable = false, length = 50)
+    private String direccion;
+
+    @Column(name = "CONTRASENA", nullable = false, length = 20)
+    private String contrasena;
+
+    @Column(name = "ROL", nullable = false, length = 7)
+    private String rol;
+    
+    public Usuario () {}
+    
+    public Usuario(String id, String nombre, String apellido, String correo, String celular, String direccion,
 			String contrasena, String rol) {
 		super();
-		this.idUsuario = idUsuario;
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
@@ -51,70 +48,70 @@ public class Usuario {
 		this.rol = rol;
 	}
 
-	public String getIdUsuario() {
-		return idUsuario;
-	}
 
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
-	public String getNombre() {
-		return nombre;
-	}
+	public String getId() {
+        return id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getApellido() {
-		return apellido;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getCorreo() {
-		return correo;
-	}
+    public String getApellido() {
+        return apellido;
+    }
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-	public String getCelular() {
-		return celular;
-	}
+    public String getCorreo() {
+        return correo;
+    }
 
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
-	public String getDireccion() {
-		return direccion;
-	}
+    public String getCelular() {
+        return celular;
+    }
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
 
-	public String getContrasena() {
-		return contrasena;
-	}
+    public String getDireccion() {
+        return direccion;
+    }
 
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
-	public String getRol() {
-		return rol;
-	}
+    public String getContrasena() {
+        return contrasena;
+    }
 
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-	
-		
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 
 }

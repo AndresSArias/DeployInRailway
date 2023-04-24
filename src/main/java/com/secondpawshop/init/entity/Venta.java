@@ -1,99 +1,101 @@
 package com.secondpawshop.init.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table (name = "venta")
-@IdClass (VentaLlaveCompuesta.class)
+@Table(name = "venta")
 public class Venta {
-	
-	@Id
-	@Column (name = "IDVENTA")
-	private String idVenta;
-	
-	@Id
-	@Column (name = "IDUSUARIOPROPETARIO")
-	private String idUsuarioPropetario;
-	
-	@Id
-	@Column (name = "NOMBREPRODUCTO")
-	private String nombreProducto;
-	
-	@Id
-	@Column (name = "IDUSUARIOCOMPRADOR")
-	private String idUsuarioComprador;
-	
-	@Column (name = "CANTIDADACOMPRAR")
-	private String cantidadAComprar;
+    @EmbeddedId
+    private VentaId id;
+    
+   
+    @MapsId("id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumns({
+            @JoinColumn(name = "NOMBREPRODUCTO", referencedColumnName = "NOMBRE", nullable = false),
+            @JoinColumn(name = "IDUSUARIOPROPETARIO", referencedColumnName = "IDUSUARIOFK", nullable = false)
+    })
+    private Producto producto;
+    
+    
+    @MapsId("id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "IDUSUARIOCOMPRADOR", nullable = false)
+    private Usuario usuario;
 
-	@Column (name = "ESTADO")
-	private String estado;
+    @Column(name = "CANTIDADACOMPRAR", nullable = false)
+    private int cantidadacomprar;
+
+    @Column(name = "PRECIOTOTAL", nullable = false)
+    private int preciototal;
+
+    @Column(name = "ESTADO", nullable = false, length = 50)
+    private String estado;
+
+    public Venta() {
 	
-	public Venta () {
-		
 	}
 
-	public Venta(String idVenta, String idUsuarioPropetario, String nombreProducto, String idUsuarioComprador,
-			String cantidadAComprar, String estado) {
+    public Venta(VentaId id, Producto producto, Usuario usuario, int cantidadacomprar, int preciototal, String estado) {
 		super();
-		this.idVenta = idVenta;
-		this.idUsuarioPropetario = idUsuarioPropetario;
-		this.nombreProducto = nombreProducto;
-		this.idUsuarioComprador = idUsuarioComprador;
-		this.cantidadAComprar = cantidadAComprar;
+		this.id = id;
+		this.producto = producto;
+		this.usuario = usuario;
+		this.cantidadacomprar = cantidadacomprar;
+		this.preciototal = preciototal;
 		this.estado = estado;
 	}
 
-	public String getIdVenta() {
-		return idVenta;
-	}
 
-	public void setIdVenta(String idVenta) {
-		this.idVenta = idVenta;
-	}
 
-	public String getIdUsuarioPropetario() {
-		return idUsuarioPropetario;
-	}
+	public VentaId getId() {
+        return id;
+    }
 
-	public void setIdUsuarioPropetario(String idUsuarioPropetario) {
-		this.idUsuarioPropetario = idUsuarioPropetario;
-	}
+    public void setId(VentaId id) {
+        this.id = id;
+    }
 
-	public String getNombreProducto() {
-		return nombreProducto;
-	}
+    public Producto getProducto() {
+        return producto;
+    }
 
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
-	}
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 
-	public String getIdUsuarioComprador() {
-		return idUsuarioComprador;
-	}
+    public Usuario getIdusuariocomprador() {
+        return usuario;
+    }
 
-	public void setIdUsuarioComprador(String idUsuarioComprador) {
-		this.idUsuarioComprador = idUsuarioComprador;
-	}
+    public void setIdusuariocomprador(Usuario idusuariocomprador) {
+        this.usuario = idusuariocomprador;
+    }
 
-	public String getCantidadAComprar() {
-		return cantidadAComprar;
-	}
+    public Integer getCantidadacomprar() {
+        return cantidadacomprar;
+    }
 
-	public void setCantidadAComprar(String cantidadAComprar) {
-		this.cantidadAComprar = cantidadAComprar;
-	}
+    public void setCantidadacomprar(Integer cantidadacomprar) {
+        this.cantidadacomprar = cantidadacomprar;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public Integer getPreciototal() {
+        return preciototal;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	
+    public void setPreciototal(Integer preciototal) {
+        this.preciototal = preciototal;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
 }
