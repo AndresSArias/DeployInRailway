@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.secondpawshop.init.entity.Producto;
+import com.secondpawshop.init.entity.PRODUCTO;
 import com.secondpawshop.init.entity.ProductoId;
 import com.secondpawshop.init.entity.Usuario;
 import com.secondpawshop.init.entity.Venta;
@@ -47,7 +47,7 @@ public class VentaService {
 				ventaDto.getIdUsuarioComprador());
 		
 		ProductoId productoId = new ProductoId(ventaDto.getIdUsuarioPropetario(), ventaDto.getNombreProducto());
-		Optional<Producto> producto = repoProducto.findById(productoId);
+		Optional<PRODUCTO> producto = repoProducto.findById(productoId);
 		
 		Optional<Usuario> usuario = repoUsuario.findById(ventaDto.getIdUsuarioComprador());
 		

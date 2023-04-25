@@ -6,39 +6,38 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "PRODUCTO")
-public class Producto {
-    @EmbeddedId
-    private ProductoId id;
-    
-    
-    @MapsId("id")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IDUSUARIOFK", nullable = false)
-    private Usuario usuario;
+public class PRODUCTO {
+	@EmbeddedId
+	private ProductoId id;
 
-    @Column(name = "CATEGORIA", nullable = false, length = 10)
-    private String categoria;
+	@MapsId("id")
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "IDUSUARIOFK", nullable = false)
+	private Usuario usuario;
 
-    @Column(name = "DESCRIPCION", nullable = false, length = 200)
-    private String descripcion;
+	@Column(name = "CATEGORIA", nullable = false, length = 10)
+	private String categoria;
 
-    @Column(name = "CANTIDAD", nullable = false)
-    private int cantidad;
+	@Column(name = "DESCRIPCION", nullable = false, length = 200)
+	private String descripcion;
 
-    @Column(name = "PRECIO", nullable = false)
-    private int precio;
+	@Column(name = "CANTIDAD", nullable = false)
+	private int cantidad;
 
-    @Column(name = "IMAGEN", nullable = false, length = 200)
-    private String imagen;
+	@Column(name = "PRECIO", nullable = false)
+	private int precio;
 
-    @Column(name = "ESTADO", nullable = false, length = 15)
-    private String estado;
-    
-    public Producto() {
-	
+	@Column(name = "IMAGEN", nullable = false, length = 200)
+	private String imagen;
+
+	@Column(name = "ESTADO", nullable = false, length = 15)
+	private String estado;
+
+	public PRODUCTO() {
+
 	}
 
-	public Producto(ProductoId id, Usuario usuario, String categoria, String descripcion, int cantidad, int precio,
+	public PRODUCTO(ProductoId id, Usuario usuario, String categoria, String descripcion, int cantidad, int precio,
 			String imagen, String estado) {
 		super();
 		this.id = id;

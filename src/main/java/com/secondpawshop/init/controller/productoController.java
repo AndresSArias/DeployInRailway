@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.secondpawshop.init.service.ProductService;
-import com.secondpawshop.init.entity.Producto;
+import com.secondpawshop.init.entity.PRODUCTO;
 import com.secondpawshop.init.entity.ProductoId;
 import com.secondpawshop.init.entity.dto.ProductoDto;
 import com.secondpawshop.init.entity.dto.ProductoFullDto;
@@ -40,7 +40,7 @@ public class productoController {
 	}
 	
 	@PostMapping("/Producto/Crear")
-	public ResponseEntity<Producto> crearProducto (@RequestBody ProductoDto p ){
+	public ResponseEntity<PRODUCTO> crearProducto (@RequestBody ProductoDto p ){
 		return new ResponseEntity<>(productoService.crearProducto(p), HttpStatus.CREATED);
 	}
 	
