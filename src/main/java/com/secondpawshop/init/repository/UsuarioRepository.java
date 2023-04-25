@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.secondpawshop.init.entity.PRODUCTO;
+import com.secondpawshop.init.entity.Producto;
 import com.secondpawshop.init.entity.Usuario;
 import com.secondpawshop.init.entity.dto.UsuarioDto;
 

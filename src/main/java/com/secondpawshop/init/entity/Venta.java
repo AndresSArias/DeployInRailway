@@ -17,7 +17,7 @@ public class Venta {
             @JoinColumn(name = "NOMBREPRODUCTO", referencedColumnName = "NOMBRE", nullable = false),
             @JoinColumn(name = "IDUSUARIOPROPETARIO", referencedColumnName = "IDUSUARIOFK", nullable = false)
     })
-    private PRODUCTO producto;
+    private Producto producto;
     
     
     @MapsId("id")
@@ -38,7 +38,7 @@ public class Venta {
 	
 	}
 
-    public Venta(VentaId id, PRODUCTO producto, Usuario usuario, int cantidadacomprar, int preciototal, String estado) {
+    public Venta(VentaId id, Producto producto, Usuario usuario, int cantidadacomprar, int preciototal, String estado) {
 		super();
 		this.id = id;
 		this.producto = producto;
@@ -58,11 +58,11 @@ public class Venta {
         this.id = id;
     }
 
-    public PRODUCTO getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setProducto(PRODUCTO producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
 

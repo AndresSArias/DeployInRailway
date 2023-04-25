@@ -10,24 +10,24 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.secondpawshop.init.entity.PRODUCTO;
+import com.secondpawshop.init.entity.Producto;
 import com.secondpawshop.init.entity.ProductoId;
 
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface ProductoRepository extends JpaRepository <PRODUCTO, ProductoId>{
+public interface ProductoRepository extends JpaRepository <Producto, ProductoId>{
 	
 	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'PUBLICADO'",nativeQuery = true)
-	List<PRODUCTO> getProductoPublicado();
+	List<Producto> getProductoPublicado();
 	
 	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'VERIFICANDO'",nativeQuery = true)
-	List<PRODUCTO> getProductoVerificando();
+	List<Producto> getProductoVerificando();
 	
 	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'PUBLICADO' AND CATEGORIA =:categoria",nativeQuery = true)
-	List<PRODUCTO> getProductoFromCategoria (String categoria);
+	List<Producto> getProductoFromCategoria (String categoria);
 	
-	Optional<PRODUCTO> findById(ProductoId id);
+	Optional<Producto> findById(ProductoId id);
 	
 	///////////////
 	@Transactional

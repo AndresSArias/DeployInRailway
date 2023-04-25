@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "PRODUCTO")
-public class PRODUCTO {
+public class Producto {
 	@EmbeddedId
 	private ProductoId id;
 
@@ -33,11 +33,11 @@ public class PRODUCTO {
 	@Column(name = "ESTADO", nullable = false, length = 15)
 	private String estado;
 
-	public PRODUCTO() {
+	public Producto() {
 
 	}
 
-	public PRODUCTO(ProductoId id, Usuario usuario, String categoria, String descripcion, int cantidad, int precio,
+	public Producto(ProductoId id, Usuario usuario, String categoria, String descripcion, int cantidad, int precio,
 			String imagen, String estado) {
 		super();
 		this.id = id;
