@@ -28,14 +28,7 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoId>
 	List<Producto> getProductoFromCategoria (String categoria);
 	
 	Optional<Producto> findById(ProductoId id);
-	
-	///////////////
-	@Transactional
-	@Modifying
-	@Query("UPDATE producto SET producto.estado = 'PUBLICADO' WHERE producto.id = :productoId")
-	void actualizarProducto(@Param("productoId") ProductoId productoId);
 
-	///////////////
 	
 	@Query (value = "INSERT INTO producto (idUsuarioFK,nombre,categoria,descripcion,cantidad,precio,imagen,estado)"
 			+" VALUES (:idUsuarioFK,:nombre,:categoria,:descripcion,:cantidad,:precio, :imagen,'VERIFICANDO')"

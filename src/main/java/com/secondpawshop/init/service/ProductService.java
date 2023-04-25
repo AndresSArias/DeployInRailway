@@ -70,12 +70,13 @@ public class ProductService {
 	}
 	
 	public void actualizarProducto(ProductoId llaveCompuesta) {
-		System.out.print("Hola" + llaveCompuesta.getIdUsuariofk());
 		Optional<Producto> producto = productoRepository.findById(llaveCompuesta);
 		
-		System.out.print("Hola" + producto.get().toString());
+
 		if (producto.isPresent()) {
-			productoRepository.actualizarProducto(llaveCompuesta);
+			Producto productoActualizado = producto.get();
+			productoActualizado.setEstado("PUBLICADO");
+			productoRepository.save(productoActualizado);
 		}
 		
     }
