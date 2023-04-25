@@ -18,7 +18,7 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface ProductoRepository extends JpaRepository <Producto, ProductoId>{
 	
-	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'PUBLICADO'",nativeQuery = true)
+	@Query (value = "SELECT * FROM producto WHERE ESTADO = 'PUBLICADO'",nativeQuery = true)
 	List<Producto> getProductoPublicado();
 	
 	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'VERIFICANDO'",nativeQuery = true)
