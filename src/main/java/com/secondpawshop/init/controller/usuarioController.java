@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 @CrossOrigin
 public class usuarioController {
-	
 	final private UserService usuarioService;
 	
 	public usuarioController (UserService usuarioService) {
