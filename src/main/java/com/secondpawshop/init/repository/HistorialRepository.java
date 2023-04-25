@@ -13,7 +13,7 @@ public interface HistorialRepository extends JpaRepository<ViewHistorial, String
 
 	Optional<ViewHistorial> findByIdUsuarioComprador(String password);
 	
-	@Query (value = "SELECT * FROM VISTAHISTORIAL WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
+	@Query (value = "SELECT * FROM vistahistorial WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
 	List <ViewHistorial> getHistorial(@Param("idUsuarioComprador")String idUsuarioComprador);
 
 }

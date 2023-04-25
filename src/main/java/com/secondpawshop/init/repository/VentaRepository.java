@@ -18,7 +18,7 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface VentaRepository extends JpaRepository <Venta, VentaId> {
 
-	@Query (value = "INSERT INTO VENTA (idVenta,idUsuarioPropetario,nombreProducto,idUsuarioComprador,cantidadAComprar,precioTotal,estado)"
+	@Query (value = "INSERT INTO venta (idVenta,idUsuarioPropetario,nombreProducto,idUsuarioComprador,cantidadAComprar,precioTotal,estado)"
 			+ " VALUES (:idVenta,:idUsuarioPropetario,:nombreProducto,:idUsuarioComprador,:cantidadAComprar,:precioTotal,'CARRO')"
 			,nativeQuery = true)
 	

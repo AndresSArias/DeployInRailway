@@ -10,7 +10,7 @@ import com.secondpawshop.init.entity.view.VistaIdComprado;
 @Repository
 public interface IdCompradoRepository extends JpaRepository <VistaIdComprado, String> {
 	
-	@Query (value = "SELECT IDVENTA FROM VISTAIDCARRO WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
+	@Query (value = "SELECT IDVENTA FROM vistaidcarro WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
 	String getIdComprado(@Param("idUsuarioComprador")String idUsuarioComprador);
 
 }

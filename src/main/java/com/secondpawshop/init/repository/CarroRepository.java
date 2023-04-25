@@ -12,7 +12,7 @@ import com.secondpawshop.init.entity.view.ViewCarrito;
 @Repository
 public interface CarroRepository extends JpaRepository <ViewCarrito, String> {
 		
-	@Query (value = "SELECT * FROM VISTACARRO WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
+	@Query (value = "SELECT * FROM vistacarro WHERE IDUSUARIOCOMPRADOR = :idUsuarioComprador", nativeQuery = true)
 	List <ViewCarrito> getCarro(@Param("idUsuarioComprador")String idUsuarioComprador);
 	
 }

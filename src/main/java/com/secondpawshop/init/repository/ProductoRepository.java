@@ -21,10 +21,10 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoId>
 	@Query (value = "SELECT * FROM producto WHERE ESTADO = 'PUBLICADO'",nativeQuery = true)
 	List<Producto> getProductoPublicado();
 	
-	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'VERIFICANDO'",nativeQuery = true)
+	@Query (value = "SELECT * FROM producto WHERE ESTADO = 'VERIFICANDO'",nativeQuery = true)
 	List<Producto> getProductoVerificando();
 	
-	@Query (value = "SELECT * FROM PRODUCTO WHERE ESTADO = 'PUBLICADO' AND CATEGORIA =:categoria",nativeQuery = true)
+	@Query (value = "SELECT * FROM producto WHERE ESTADO = 'PUBLICADO' AND CATEGORIA =:categoria",nativeQuery = true)
 	List<Producto> getProductoFromCategoria (String categoria);
 	
 	Optional<Producto> findById(ProductoId id);
@@ -32,12 +32,12 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoId>
 	///////////////
 	@Transactional
 	@Modifying
-	@Query("UPDATE Producto p SET p.estado = 'PUBLICADO' WHERE p.id = :productoId")
+	@Query("UPDATE producto p SET p.estado = 'PUBLICADO' WHERE p.id = :productoId")
 	void actualizarProducto(@Param("productoId") ProductoId productoId);
 
 	///////////////
 	
-	@Query (value = "INSERT INTO PRODUCTO (idUsuarioFK,nombre,categoria,descripcion,cantidad,precio,imagen,estado)"
+	@Query (value = "INSERT INTO producto (idUsuarioFK,nombre,categoria,descripcion,cantidad,precio,imagen,estado)"
 			+" VALUES (:idUsuarioFK,:nombre,:categoria,:descripcion,:cantidad,:precio, :imagen,'VERIFICANDO')"
 			,nativeQuery = true)
 	void addProduct (String idUsuarioFK, String nombre, String categoria, String descripcion, int cantidad, int precio, String imagen);
