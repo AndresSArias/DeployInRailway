@@ -32,7 +32,7 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoId>
 	///////////////
 	@Transactional
 	@Modifying
-	@Query("UPDATE producto p SET p.estado = 'PUBLICADO' WHERE p.id = :productoId")
+	@Query("UPDATE producto SET producto.estado = 'PUBLICADO' WHERE producto.id = :productoId")
 	void actualizarProducto(@Param("productoId") ProductoId productoId);
 
 	///////////////
@@ -43,17 +43,4 @@ public interface ProductoRepository extends JpaRepository <Producto, ProductoId>
 	void addProduct (String idUsuarioFK, String nombre, String categoria, String descripcion, int cantidad, int precio, String imagen);
 	
 	
-	 /*
-	@Transactional
-	@Modifying
-	@Query("UPDATE PRODUCTO P SET ESTADO = 'PUBLICADO' WHERE P.IDUSUARIOFK = :idUsuarioFK AND NOMBRE = :nombre")
-	void actualizarProducto (@Param("idUsuarioFK") String idUsuarioFK, @Param("nombre") String nombre);
-	*/
-
-
-	
-
-
-	
-	//Optional<Producto> findByIdUsuarioFKAndNombre(String idUsuarioFK, String nombre);
 }
